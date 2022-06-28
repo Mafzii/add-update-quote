@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateQuoteComponent } from '../update-quote/update-quote.component';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class UpdateModalComponent implements OnInit {
   }
 
   openUpdateQuote() {
-    const modalRef = this.modalService.open(UpdateModalComponent, { centered: true, size: 'xl' });
+    const modalRef = this.modalService.open(UpdateQuoteComponent, { size: 'xl', backdrop: "static" });
   }
 
 }

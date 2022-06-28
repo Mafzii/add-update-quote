@@ -1,0 +1,110 @@
+<header class="px-4">
+    <div class="d-flex justify-content-between mt-3">
+        <div class="container d-flex align-items-center">
+            <h3>Add New Quote</h3> 
+            <span class="vert mx-3"></span>
+            <h3>HMQ-2206170000004</h3>
+            <span class="vert mx-3"></span>
+            <h3>Atco Laboratories</h3>
+        </div>
+        <button class="btn-close" (click)="activeModal.dismiss()"></button>
+    </div>
+</header>
+
+<hr class="mt-2">
+
+<main class="px-4">
+    <form action="" class="scrollable">
+
+        <section class="container row pb-3">
+            <div class="col-6 ps-0">
+                <h4 class="mb-2">Commodity Description</h4>
+                <textarea type="text" class="textbox ports border-0" ngbAutofocus></textarea>
+            </div>
+            <div class="col-6 pe-0">
+                <h4 class="mb-2">Customer Comments</h4>
+                <textarea type="text" class="textbox ports border-0"></textarea>
+            </div>
+        </section>
+    
+        <section class="container pb-4">
+            <h4>Route</h4>
+            <div class="container p-0 row">
+                <div class="col-6">
+                    <h6 class="my-3">Origin Port</h6>
+                    <input type="text" class="ports">
+                </div>
+                <div class="col-6">
+                    <h6 class="my-3">Destination Port</h6>
+                    <input type="text" class="ports">
+                </div>
+            </div>
+            <div class="container ps-0">
+                <div class="container ps-0">
+                    <h4 class="my-3">Shipping Line</h4>
+                    <input type="text" class="ports">
+                </div>
+            </div>
+        </section>
+    
+    
+        <section class="container pb-4">
+            <h4 class="mb-3">Vessel Schedule <span class="optional">(Optional)</span></h4>
+            <div class="d-flex justify-content-between">
+                
+                <div class="d-flex vessel-schedule">
+                    <div class="input-group">
+                        <span class="input-group-text">Departure</span>
+                        <input (click)="d1.toggle()" ngbDatepicker #d1="ngbDatepicker" class="schedule-input">
+                    </div>
+                    
+                    <div class="input-group">
+                        <span class="input-group-text">Cut Off</span>
+                        <input (click)="d2.toggle()" ngbDatepicker #d2="ngbDatepicker" class="schedule-input">
+                    </div>
+                </div>
+        
+                <div class="d-flex vessel-schedule">
+                    <div class="input-group">
+                        <span class="input-group-text">Transit Days</span>
+                        <input type="text"class="schedule-input">
+                    </div>
+            
+                    <div class="input-group">
+                        <span class="input-group-text">Stops</span>
+                        <select class="schedule-input">
+                            <option selected>Direct</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+
+        </section>
+
+    </form>
+</main>
+
+<hr class="mt-2">
+
+ <footer class="px-4 pb-3">
+
+    <div class="container d-flex justify-content-between pe-0">
+        <div>
+            <h6>VIEW PRICE BREAKDOWN</h6>
+        </div>
+    
+        <div>
+            <button class="button green border-0 rounded-1 shadow-sm me-2">CLOSE</button>
+            <button class="button grey border-0 rounded-1 me-2">SAVE & ADD ANOTHER</button>
+            <button class="button grey border-0 rounded-1">SAVE & CLOSE</button>
+        </div>
+    </div>
+
+ </footer>
+

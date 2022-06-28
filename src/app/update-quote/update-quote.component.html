@@ -1,3 +1,128 @@
-<div class="d-flex justify-content-center">
-    <button class="green-button rounded-1 border-0 py-1 shadow-sm">Submit</button>
-</div>
+<main class="main">
+    <header class="container d-flex justify-content-between header">
+        <h3 class="container title">Update Quote</h3>
+        <img src="../../assets/close.svg"  class="close-icon"  (click)="activeModal.dismiss()"/>
+    </header>
+    <hr>
+
+    <!-- main body of the modal that will be scrollable -->
+    <body class="container">
+        <div class="scrollable">
+
+            <h6 class="container detail">
+                Following requests are also pending for the quote for the same customer with same routes do you want to apply this quote to all.
+            </h6>
+
+            <label class="container subtitle fw-normal d-flex my-3">
+                <!-- fix select all and remove input for individual boxes in pure css -->
+                <div class="check-bg">
+                    <div (click)="selectAll()" [ngClass]="select_all ? 'checked' : 'unchecked'"></div>
+                </div>
+                <h6 class="ms-2">SELECT ALL</h6>
+            </label>
+
+            <div class="container">
+                <div class="table-responsive">
+                    <table class="table table-borderless table-width table-stripe">
+                        <thead class="subtitle">
+                            <th class="px-1"></th>
+                            <th><h6>REQUEST NO</h6></th>
+                            <th><h6>ORIGIN / DESTINATION</h6></th>
+                            <th><h6>CUSTOMER</h6></th>
+                            <th><h6>SHIPPING LINE</h6></th>
+                            <th><h6>CARGO DETAIL</h6></th>
+                            <th><h6>CUT OFF.</h6></th>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let entry of reqs; index as i">
+                                <td class="px-1">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="check-bg">
+                                            <div id="check-{{i}}" (click)="toggler(i)" [ngClass]="checkboxes[i] ? 'checked' : 'unchecked'"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="request">
+                                    <h6 class="req-id">HMQ-2206200000005</h6>
+                                    <p class="req-by lh-1">Requested by Asif Sattar on 20 Jun, 2022 6:50 (GMT)</p>
+                                </td>
+                                <td>
+                                    <label class="d-flex">
+                                        <img class="flag" src="../../assets/pak.svg"/>
+                                        <div class="ps-1">
+                                            <div class="flag-title">PK KHI</div>
+                                            <div class="flag-subtitle">Karachi Pakistan</div>
+                                        </div>
+                                    </label>
+                                    <label class="d-flex ps-2">
+                                        <div class="line"></div>
+                                        <img class="arrow" src="../../assets/sar.svg"/>
+                                        <div class="d-flex mt-1">
+                                            <img class="flag" src="../../assets/sa.svg"/>
+                                            <div class="ps-1">
+                                                <div class="flag-title">SA DMM</div>
+                                                <div class="flag-subtitle">Dammam Saudi Arabia</div>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </td>
+                                <td>
+                                    <div class="d-flex customer">
+                                        <img src="../../assets/atco.png" class="icon" />
+                                        <h6 class="subtitle ms-2 fw-normal">Atco Laboratories</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="d-flex shipping-line">
+                                        <img src="../../assets/CMACGM.png" class="icon" />
+                                        <h6 class="subtitle ms-2 fw-normal">CMA CGM Shipping</h6>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h6 class="fw-normal m-0 mb-1 container-title">Container</h6>
+                                    <div class="subtitle lh-1">
+                                        <p>Standard 20' x 1</p>
+                                        <p>Standard 40' x 1</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <h6 class="subtitle">23 May 2022</h6>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+    <footer>
+        <div class="container">
+            <div class="container d-flex justify-content-end">
+                <button class="button grey border-0 rounded-1 py-2 ms-4 my-3" (click)="activeModal.dismiss()">Cancel</button>
+                <button class="button green border-0 rounded-1 py-2 ms-4 shadow-sm my-3" (click)="openSuccess(success)">Submit</button>
+            </div>
+        </div>
+    </footer>
+</main>
+
+<ng-template #success let-modal>
+    <header class="container d-flex justify-content-between header">
+        <h3 class="container title">Update Quote</h3>
+        <img src="../../assets/close.svg"  class="close-icon mt-2"  (click)="modal.dismiss()"/>
+    </header>
+    <hr>
+
+    <main>
+        <div class="d-flex justify-content-center">
+            <img src="../../assets/icon-update-quote-request-submited.svg" class="success-icon mb-3"/>
+        </div>
+        <h6 class="container success-desc mb-3">
+            Your Request has been Submited Successfully!
+        </h6>
+        <div class="d-flex justify-content-center mb-4 container">
+            <button class="button green border-0 rounded-1 py-1 success-button" (click)="modal.dismiss();activeModal.dismiss()">Would you like to proceed?</button>
+        </div>
+    </main>
+</ng-template>
