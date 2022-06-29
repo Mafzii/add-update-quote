@@ -13,63 +13,67 @@
 
 <hr class="mt-2">
 
-<main class="px-4">
-    <form action="" class="scrollable">
+<main class="px-4 scrollable">
+    <form action="">
 
-        <section class="container row pb-3">
-            <div class="col-6 ps-0">
-                <h4 class="mb-2">Commodity Description</h4>
-                <textarea type="text" class="textbox ports border-0" ngbAutofocus></textarea>
-            </div>
-            <div class="col-6 pe-0">
-                <h4 class="mb-2">Customer Comments</h4>
-                <textarea type="text" class="textbox ports border-0"></textarea>
+        <section class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4 class="mb-2">Commodity Description</h4>
+                    <textarea type="text" class="textbox ports border-0" ngbAutofocus></textarea>
+                </div>
+                <div class="col-lg-6">
+                    <h4 class="mb-2">Customer Comments</h4>
+                    <textarea type="text" class="textbox ports border-0"></textarea>
+                </div>
             </div>
         </section>
     
         <section class="container pb-4">
             <h4>Route</h4>
-            <div class="container p-0 row">
-                <div class="col-6">
+            <div class="row">
+                <div class="col-lg-6">
                     <h6 class="my-3">Origin Port</h6>
                     <input type="text" class="ports">
                 </div>
-                <div class="col-6">
+                <div class="col-lg-6">
                     <h6 class="my-3">Destination Port</h6>
                     <input type="text" class="ports">
                 </div>
             </div>
-            <div class="container ps-0">
-                <div class="container ps-0">
-                    <h4 class="my-3">Shipping Line</h4>
-                    <input type="text" class="ports">
-                </div>
-            </div>
+            
+            <h4 class="my-3">Shipping Line</h4>
+            <input type="text" class="ports">
+            
         </section>
     
     
         <section class="container pb-4">
             <h4 class="mb-3">Vessel Schedule <span class="optional">(Optional)</span></h4>
-            <div class="d-flex justify-content-between">
+            <div class="row">
                 
-                <div class="d-flex vessel-schedule">
+                <div class="col-md-3">
                     <div class="input-group">
                         <span class="input-group-text">Departure</span>
                         <input (click)="d1.toggle()" ngbDatepicker #d1="ngbDatepicker" class="schedule-input">
                     </div>
-                    
+                </div>
+
+                <div class="col-md-3">
                     <div class="input-group">
                         <span class="input-group-text">Cut Off</span>
                         <input (click)="d2.toggle()" ngbDatepicker #d2="ngbDatepicker" class="schedule-input">
                     </div>
                 </div>
         
-                <div class="d-flex vessel-schedule">
+                <div class="col-md-3">
                     <div class="input-group">
                         <span class="input-group-text">Transit Days</span>
                         <input type="text"class="schedule-input">
                     </div>
+                </div>
             
+                <div class="col-md-3">
                     <div class="input-group">
                         <span class="input-group-text">Stops</span>
                         <select class="schedule-input">
@@ -80,11 +84,112 @@
                         </select>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <section>
+        <div class="container text-center ">
+            <div class="d-flex justify-content-center">
+                <p class="blue fw-normal mb-3 mt-1">STANDARD 20'</p>
+                <img src="../../assets/container.png" class="icon ms-2">
+            </div>
+            <div class="blue-line"></div>
+        </div>
 
+        <section class="container">
+            <h6 class="mt-4 mb-3 grey-subtitles">RATE</h6>
+            <div class="row mb-4">
+
+                <div class="col-md-3">
+                    <div class="input-group">
+                        <span class="input-group-text">Currency</span>
+                        <input type="text"class="schedule-input">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-text">Rate Per Container</span>
+                        <input type="text"class="schedule-input">
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-text">Container Qty</span>
+                        <input type="text"class="schedule-input">
+                    </div>
+                </div>
+
+            </div>
+
+            <h6 class="mt-4 mb-3 grey-subtitles">ADDITIONAL CHARGES AT PORT OF ORIGIN</h6>
+
+            <div class="row">
+                <div class="input-group">
+                    <select class="col-md-3">
+
+                    </select>
+                    <input type="text"class="col-md-2 textinput">
+                    <span class="input-group-text col-md-1">USD</span>
+                </div>
+            </div>
+
+            <div class="d-flex pt-3 align-items-center">
+                <img src="../../assets/add_circle.svg" class="add-charges-icon me-3">
+                <p class="add-charges">Add More Charges</p>
+            </div>
+
+            <h6 class="mt-4 mb-3 grey-subtitles">ADDITIONAL CHARGES AT PORT OF DESTINATION</h6>
+
+            <div class="row">
+                <div class="input-group">
+                    <select class="col-md-3">
+
+                    </select>
+                    <input type="text"class="col-md-2 textinput">
+                    <span class="input-group-text col-md-1">USD</span>
+                </div>
+            </div>
+
+            <div class="d-flex pt-3 align-items-center">
+                <img src="../../assets/add_circle.svg" class="add-charges-icon me-3">
+                <p class="add-charges">Add More Charges</p>
+            </div>
+        </section>
+
+        <section class="container mb-4">
+            <hr class="mb-4">
+
+            <div class="row pb-3">
+                <div class="input-group">
+                    <span class="input-group-text">Rate Validity</span>
+                    <input (click)="rate.toggle()" ngbDatepicker #rate="ngbDatepicker" class="textinput col-md-2">
+                    <input (click)="rate2.toggle()" ngbDatepicker #rate2="ngbDatepicker" class="textinput col-md-2">
+                </div>
+            </div>
+
+            <h4 class="pb-2">Quote Terms and Conditions <span class="optional">(Optional)</span></h4>
+            <textarea class="terms-and-conditions rounded-1 py-1 px-2" placeholder="Please enter shioment terms and conditions including free days and payments terms"></textarea>
+            <p>500 of 500 characters remaining</p>
+        </section>
+
+        <section class="container">
+            <h4 class="mb-2">Payment Terms</h4>
+            <div class="payment-terms">
+                <div class="container py-2">
+                    <h4 class="fw-bold">Customer Payment Terms:</h4>
+                    <ul class="ps-3">
+                        <li>20 days from issuance of invoice</li> 
+                    </ul>
+                </div>
+                <hr class="mt-0">
+                <div class="row">
+                    <div class="col-6-md"></div>
+                    <div class="col-6-md"></div>
+                </div>
+
+            </div>
         </section>
 
     </form>
@@ -99,10 +204,10 @@
             <h6>VIEW PRICE BREAKDOWN</h6>
         </div>
     
-        <div>
-            <button class="button green border-0 rounded-1 shadow-sm me-2">CLOSE</button>
-            <button class="button grey border-0 rounded-1 me-2">SAVE & ADD ANOTHER</button>
-            <button class="button grey border-0 rounded-1">SAVE & CLOSE</button>
+        <div class="d-flex flex-wrap">
+            <button class="button green border-0 rounded-1 shadow-sm me-2 mb-2">CLOSE</button>
+            <button class="button grey border-0 rounded-1 me-2 mb-2">SAVE & ADD ANOTHER</button>
+            <button class="button grey border-0 rounded-1 mb-2">SAVE & CLOSE</button>
         </div>
     </div>
 
