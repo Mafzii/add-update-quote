@@ -1,16 +1,15 @@
-.close-icon {
-    max-height: 14px;
-    max-width: 14px;
-}
-
 .update-icon {
     max-height: 100px;
     max-width: 100px;
 }
+.update-icon-dropped {
+    max-height: 75px;
+    max-width: 75px;
+}
 
 .button {
     font-size: 0.875rem;
-    width: 120px;
+    max-height: 37px;
 }
 .green {
     background-color: #02BDB6;
@@ -20,6 +19,17 @@
     background-color: #EDEDED;
     color: #738593;
 }
+.show-list {
+    color: #02BDB6;
+    background-color: white;
+}
+.show-list-svg {
+    margin-left: -16px;
+}
+.show-list-container {
+    background-color: white;
+    border: 0px;
+}
 
 .title {
     color: #2b2b2b;
@@ -27,8 +37,12 @@
 }
 .subtitle {
     color: #738593;
+    font-size: 1rem;
+    margin: 0px auto;
+}
+.subsubtitle {
+    color: #738593b0;
     font-size: 0.875rem;
-    max-width: 350px;
     margin: 0px auto;
 }
 
@@ -37,4 +51,171 @@
         margin-bottom: 0.5rem;
         min-width: 100px;
     }
+}
+
+
+
+
+.main {
+    min-height: fit-content;
+}
+
+.close-icon {
+    max-height: 14px;
+    max-width: 14px;
+}
+
+.header {
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+.subtitle-drop {
+    color: #738593;
+    font-size: 0.875rem;
+}
+.detail {
+    color: #738593;
+    font-size: 20px;
+}
+hr {
+    margin-top: 0px;
+}
+
+.line {
+    border: none;
+    border-left: 2px dotted #00a2df;
+    color: #fff;
+    background-color: #fff;
+    height: 10px;
+    width: 1px;
+    transform: translateX(7px) translateY(-8px);
+}
+.flag {
+    width: 21px;
+    height: 14px;
+}
+.icon {
+    height: 28px;
+    width: 28px;
+}
+.arrow {
+    height: 1.5rem;
+    width: 1.5rem;
+    filter: invert(45%) sepia(87%) saturate(1585%) hue-rotate(164deg) brightness(94%) contrast(101%);
+}
+
+td {
+    padding-top: 1rem;
+}
+
+.req-id {
+    color: #00a2df;
+    font-size: 12px;
+    margin-bottom: 0rem;
+    font-weight: bold;
+}
+.req-by {
+    color: #738593;
+    font-size: 8px;
+}
+.flag-title {
+    color: #2b2b2b;
+    font-size: 12px;
+}
+.flag-subtitle {
+    color: #738593;
+    font-size: 10px;
+}
+p {
+    margin: 0rem;
+}
+.container-title {
+    color: #2b2b2b;
+}
+.customer {
+    max-width: 110px;
+}
+.shipping-line {
+    max-width: 120px;
+}
+.request {
+    max-width: 160px;
+}
+.origin-dest {
+    max-width: 120px;
+}
+td, th{
+    border:1px solid #738593;
+}
+h6 {
+    margin: 0;
+}
+td {
+    height: 100%;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+.table-width {
+    min-width: max-content;
+}
+thead {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+.table-stripe > tbody > tr:nth-child(odd) > td {
+    background-color: #fff;
+}
+
+.table-stripe > tbody > tr:nth-child(even) > td {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+.scrollable {
+    max-height: 60vh;
+    overflow-y: scroll;
+}
+.check-bg {
+    background-color: rgba(0, 0, 0, 0.01);
+    padding: 0.25rem;
+    border: 1px #738593 solid;
+    border-radius: 3px;
+}
+.checked {
+    background-color: #00a2df;
+    box-shadow: 0px 1px 3px black inset;
+    width: 0.75rem;
+    height: 11px;
+}
+.unchecked {
+    background-color: rgba(0, 0, 0, 0.03);
+    width: 0.75rem;
+    height: 11px;
+}
+.success-icon {
+    max-height: 70px;
+    max-width: 70px;
+}
+.success-desc {
+    font-size: 14px;
+    text-align: center;
+    color: #2b2b2b;
+    max-width: 250px;
+    margin: 0px auto;
+}
+.success-button {
+    width: 400px;
+}
+/* not working when trying to change backdrop color to white for second popup */
+.success-window {
+    background-color: #fff;
+}
+
+.dropped-border {
+    width: 100%;
+    height: 24px;
+    margin-top: -24px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    box-shadow: 0 4px 10px -8px black;
+}
+.fs-12 {
+    font-size: 12px;
 }

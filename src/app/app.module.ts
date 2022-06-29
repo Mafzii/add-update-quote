@@ -7,6 +7,7 @@ import { UpdateQuoteComponent } from './update-quote/update-quote.component';
 import { UpdateModalComponent } from './update-modal/update-modal.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { AddQuoteComponent } from './add-quote/add-quote.component';
+import { SuccessComponent } from './success/success.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { AddQuoteComponent } from './add-quote/add-quote.component';
     UpdateModalComponent,
     MainPageComponent,
     AddQuoteComponent,
+    SuccessComponent,
   ],
   imports: [
     BrowserModule,
