@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { SuccessComponent } from '../success/success.component';
 import { UpdateQuoteComponent } from '../update-quote/update-quote.component';
 
 
