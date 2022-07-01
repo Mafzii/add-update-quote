@@ -11,7 +11,7 @@ import { UpdateQuoteComponent } from '../update-quote/update-quote.component';
 })
 export class UpdateModalComponent implements OnInit {
 
-  dropdown = false;
+  dropdown: boolean = false;
   reqs: any[] = [
     {},{},{},{},{},{},{},{},{},{},{},{},
   ]

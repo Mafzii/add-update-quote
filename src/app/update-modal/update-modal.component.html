@@ -1,166 +1,180 @@
-<main class="update-modal p-4 m-1">
-
-    <div class="d-flex justify-content-end">
-        <img (click)="activeModal.dismiss()" src="../../assets/close.svg" class="close-icon" />
-    </div>
-
-    <div *ngIf="dropdown; else headerDropped">
-        <div class="d-flex">
-            <img src="../../assets/icon-update-quote-list.svg" class="update-icon-dropped mb-3"/>
-            <div class="mb-4 pb-1 ms-3">
-                <h3 class="title mt-0 mb-1">Requests Await Your Quotes</h3>
+<header class="p-4">
+    <header>
+        <div class="d-flex justify-content-end">
+            <button (click)="activeModal.dismiss()" class="btn-close"></button>
+        </div>
+        <div *ngIf="dropdown; else headerDropped">
+            <div class="d-flex">
+                <img src="../../assets/icon-update-quote-list.svg" class="update-icon-dropped mb-3"/>
+                <div class="mb-4 pb-1 ms-3">
+                    <h3 class="title mb-1">Requests Await Your Quotes</h3>
+                    <p class="subsubtitle mx-auto mb-2">There are more requests for the same customer with same route & cargo details.</p>
+                    <div class="subtitle mx-auto fw-light">
+                        <h6>Do you want to apply this quote to all pending requests?</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #headerDropped>
+            <div class="d-flex justify-content-center">
+                <img src="../../assets/icon-update-quote-list.svg" class="update-icon mb-3"/>
+            </div>
+            <div class="text-center mb-4 pb-1">
+                <h3 class="title mb-1">Requests Await Your Quotes</h3>
                 <p class="subsubtitle mb-2">There are more requests for the same customer with same route & cargo details.</p>
                 <div class="subtitle fw-light">
                     <h6>Do you want to apply this quote to all pending requests?</h6>
                 </div>
             </div>
-        </div>
-    </div>
-    <ng-template #headerDropped>
-        <div class="d-flex justify-content-center">
-            <img src="../../assets/icon-update-quote-list.svg" class="update-icon mb-3"/>
-        </div>
-        
-        <div class="text-center mb-4 pb-1">
-            <h3 class="title mt-0 mb-1">Requests Await Your Quotes</h3>
-            <p class="subsubtitle mb-2">There are more requests for the same customer with same route & cargo details.</p>
-            <div class="subtitle fw-light">
-                <h6>Do you want to apply this quote to all pending requests?</h6>
+        </ng-template>
+    </header>
+    <main>
+        <div class="d-flex flex-wrap-reverse justify-content-center justify-content-lg-between">
+            <button class="show-list-container border-0 d-flex align-items-center position-relative mt-4 mt-lg-0 p-0" (click)="toggleList()">
+                <div *ngIf="dropdown; else showDropIcon">
+                    <img src="../../assets/view_list_dropped.svg" class="show-list-svg"/>
+                </div>
+                <ng-template #showDropIcon>
+                    <img src="../../assets/view_list.svg" class="show-list-svg"/>
+                </ng-template>
+                <span class="show-list position-absolute ps-3">Show List</span>
+            </button>
+            <div class="d-flex flex-wrap-reverse justify-content-center">
+                <button class="button grey border-0 rounded-1 py-1 px-5 mb-2 mb-sm-0" (click)="activeModal.dismiss()">SKIP</button>
+                <button class="button green border-0 rounded-1 py-1 px-5 shadow-sm ms-sm-4 mb-2 mb-sm-0" (click)="openSuccess(success)">YES, APPLY TO ALL </button>
+                <ng-template #success let-modal>
+                    <header class="container d-flex justify-content-between pt-2 pe-2">
+                        <h3 class="container title">Requests Await Your Quotes</h3>
+                        <img src="../../assets/close.svg"  class="btn-close"  (click)="modal.dismiss()"/>
+                    </header>
+                    <hr>
+                    <main>
+                        <div class="d-flex justify-content-center">
+                            <img src="../../assets/icon-update-quote-request-submited.svg" class="success-icon mb-3"/>
+                        </div>
+                        <h6 class="container success-desc mx-auto mb-3">
+                            Your Request has been Submited Successfully!
+                        </h6>
+                        <div class="d-flex justify-content-center mb-4 container">
+                            <button class="button green border-0 rounded-1 py-1 success-button" (click)="modal.dismiss();activeModal.dismiss()">Would you like to proceed?</button>
+                        </div>
+                    </main>
+                </ng-template>
             </div>
         </div>
-    </ng-template>
-    
-    <div class="container d-flex justify-content-between mx-2">
-        <button class="show-list-container d-flex align-items-center position-relative" (click)="toggleList()">
-            <div *ngIf="dropdown; else showDropIcon">
-                <img src="../../assets/view_list_dropped.svg" class="show-list-svg"/>
-            </div>
-            <ng-template #showDropIcon>
-                <img src="../../assets/view_list.svg" class="show-list-svg"/>
-            </ng-template>
-            <span class="show-list position-absolute">Show List</span>
-        </button>
-        <div class="d-flex flex-wrap justify-content-end">
-            <button class="button grey border-0 rounded-1 py-1 px-5 ms-4" (click)="activeModal.dismiss()">SKIP</button>
-            <button class="button green border-0 rounded-1 py-1 px-5 shadow-sm ms-4" (click)="openSuccess(success)">YES, APPLY TO ALL </button>
-            <ng-template #success let-modal>
-                <header class="container d-flex justify-content-between header">
-                    <h3 class="container title">Update Quote</h3>
-                    <img src="../../assets/close.svg"  class="close-icon mt-2"  (click)="modal.dismiss()"/>
-                </header>
-                <hr>
-                
-                <main>
-                    <div class="d-flex justify-content-center">
-                        <img src="../../assets/icon-update-quote-request-submited.svg" class="success-icon mb-3"/>
-                    </div>
-                    <h6 class="container success-desc mb-3">
-                        Your Request has been Submited Successfully!
-                    </h6>
-                    <div class="d-flex justify-content-center mb-4 container">
-                        <button class="button green border-0 rounded-1 py-1 success-button" (click)="modal.dismiss();activeModal.dismiss()">Would you like to proceed?</button>
-                    </div>
-                </main>
-            </ng-template>
-        </div>
-    </div>
-
-</main>
+    </main>
+</header>
 
 <div *ngIf="dropdown">
-    <div class="dropped-border mb-3"></div>
+    <footer>
+        <div class="dropped-border mb-3"></div>
+    </footer>
 </div>
 
-
-
-<div *ngIf="dropdown">
-    <main class="main mx-4">
-        
-        <body>
-            <label class="container subtitle-drop fw-normal d-flex mb-3">
+<body *ngIf="dropdown">
+    <div class="mx-4">
+        <header>
+            <label class="subtitle-drop fw-normal d-flex mb-3">
                 <div (click)="selectAll()" class="check-bg">
                     <div [ngClass]="select_all ? 'checked' : 'unchecked'"></div>
                 </div>
-                <h6 class="ms-2">SELECT ALL</h6>
+                <h6 class="ms-2 mb-0 mt-1" style="font-size: 14px;">SELECT ALL</h6>
             </label>
-            
-            <div class="scrollable">
-    
-                <div class="container">
-                    <div class="table-responsive">
-                        <table class="table table-borderless table-width table-stripe">
-                            <thead class="subtitle-drop position-sticky fs-12">
-                                <th class="px-1"></th>
-                                <th class="px-2 py-3">REQUEST NO</th>
-                                <th class="px-2 py-3">ORIGIN / DESTINATION</th>
-                                <th class="px-2 py-3">CUSTOMER</th>
-                                <th class="px-2 py-3">SHIPPING LINE</th>
-                                <th class="px-2 py-3">CARGO DETAIL</th>
-                                <th class="px-2 py-3">CUT OFF.</th>
-                            </thead>
-                            <tbody class="fs-12">
-                                <tr *ngFor="let entry of reqs; index as i">
-                                    <td class="px-1">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="check-bg" (click)="toggler(i)">
-                                                <div id="check-{{i}}" [ngClass]="checkboxes[i] ? 'checked' : 'unchecked'"></div>
+        </header>
+        <main class="scrollable">
+            <section *ngFor="let request of reqs; index as i;" class="mb-2 fadeIn" > <!-- [ngClass]="dropdown ? 'fadeIn':'fadeOut'" -->
+                <div class="shadow-sm">
+                    <div class="card">
+                        <header class="d-flex ps-3 ps-lg-4 my-2 lh-1">
+                            <div class="check-bg" (click)="toggler(i)">
+                                <div id="check-{{i}}" [ngClass]="checkboxes[i] ? 'checked' : 'unchecked'"></div>
+                            </div>
+                            <div class="ms-2">
+                                <div class="req-id fw-bold">HMQ-2206200000005</div>
+                                <p class="req-by fw-normal">Requested by Asif Sattar on 20 Jun, 2022 6:50 (GMT)</p>
+                            </div>
+                        </header>
+                        <hr class="m-0">
+                        <main class="ps-3 ps-lg-4">
+                            <div class="row d-flex pb-3 pt-2">
+                                <div class="col-lg-5 col-md-12 d-flex justify-content-evenly">
+                                    <div class="row">
+                                        <div class="col-5">
+                                            <div class="subtitle-drop">ORIGIN</div>
+                                            <label class="d-flex mt-2">
+                                                <img class="flag mt-1" src="../../assets/pak.svg"/>
+                                                <div class="ps-1">
+                                                    <div class="flag-title">PK KHI</div>
+                                                    <div class="flag-subtitle">Karachi Pakistan</div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="col-2">
+                                            <div class="d-flex mt-4">
+                                                <img src="../../../assets/dotted.svg" />
                                             </div>
                                         </div>
-                                    </td>
-                                    <td class="request">
-                                        <div class="req-id">HMQ-2206200000005</div>
-                                        <p class="req-by lh-1">Requested by Asif Sattar on 20 Jun, 2022 6:50 (GMT)</p>
-                                    </td>
-                                    <td class="origin-dest">
-                                        <label class="d-flex">
-                                            <img class="flag" src="../../assets/pak.svg"/>
-                                            <div class="ps-1">
-                                                <div class="flag-title">PK KHI</div>
-                                                <div class="flag-subtitle">Karachi Pakistan</div>
-                                            </div>
-                                        </label>
-                                        <label class="d-flex ps-2">
-                                            <div class="line"></div>
-                                            <img class="arrow" src="../../assets/sar.svg"/>
-                                            <div class="d-flex mt-1">
-                                                <img class="flag" src="../../assets/sa.svg"/>
-                                                <div class="ps-1">
-                                                    <div class="flag-title">SA DMM</div>
-                                                    <div class="flag-subtitle">Dammam Saudi Arabia</div>
+                                        <div class="col-5">
+                                            <div class="subtitle-drop">DESTINATION</div>
+                                            <label class="d-flex mt-2">
+                                                <div class="d-flex">
+                                                    <img class="flag mt-1" src="../../assets/sa.svg"/>
+                                                    <div class="ps-1">
+                                                        <div class="flag-title">SA DMM</div>
+                                                        <div class="flag-subtitle">Dammam Saudi Arabia</div>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7 d-flex mt-3 mt-lg-0 justify-content-between justify-content-lg-start">
+                                    <div class="row">
+                                        <div class="col-lg-6 ps-lg-0 d-flex">
+                                            <div class="col-6">
+                                                <div class="subtitle-drop ms-0 ms-sm-2">CUSTOMER</div>
+                                                <div class="d-flex">
+                                                    <div class="card-divider"></div>
+                                                    <div class="d-flex mt-2">
+                                                        <img src="../../assets/atco.png" class="icon" />
+                                                        <div class="flag-title ms-1">Atco Laboratories</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex customer">
-                                            <img src="../../assets/atco.png" class="icon" />
-                                            <div class="subtitle-drop ms-2 fw-normal fs-12">Atco Laboratories</div>
+                                            <div class="col-6">
+                                                <div class="subtitle-drop ms-0 ms-sm-2">SHIPPING LINE</div>
+                                                <div class="d-flex">
+                                                    <div class="card-divider"></div>
+                                                    <div class="d-flex mt-2">
+                                                        <img src="../../assets/CMACGM.png" class="icon" />
+                                                        <div class="flag-title ms-1">CMA CGM Shipping</div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        <div class="d-flex shipping-line">
-                                            <img src="../../assets/CMACGM.png" class="icon" />
-                                            <div class="subtitle-drop ms-2 fw-normal fs-12">CMA CGM Shipping</div>
+                                        <div class="col-lg-6 d-flex mt-2 mt-lg-0">
+                                            <div class="col-6">
+                                                <div class="subtitle-drop ms-0 ms-sm-2">CARGO DETAILS</div>
+                                                <div class="d-flex">
+                                                    <div class="card-divider"></div>
+                                                    <div class="fw-normal flag-title mt-2">FCL x 3</div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="subtitle-drop ms-0 ms-sm-2">CUT OFF</div>
+                                                <div class="d-flex">
+                                                    <div class="card-divider"></div>
+                                                    <div class="flag-title mt-2">23 May 2022</div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        <div class="fw-normal m-0 mb-1 container-title">Container</div>
-                                        <div class="subtitle-drop lh-1 fs-12">
-                                            <p>Standard 20' x 1</p>
-                                            <p>Standard 40' x 1</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="subtitle-drop fs-12">23 May 2022</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
                     </div>
                 </div>
-    
-            </div>
-        </body>
-    
-    </main>
-</div>
+            </section>
+        </main>
+    </div>
+<body>
