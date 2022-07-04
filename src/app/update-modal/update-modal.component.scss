@@ -1,0 +1,152 @@
+$primary-color: #00a2df;
+$secondary-color: #02BDB6;
+$lighter-gray: #738593b0;
+$light-gray: #738593;
+$dark-gray: #2b2b2b;
+
+.btn-close:focus {
+    outline: none;
+    box-shadow: none;
+}
+.button {
+    font-size: 0.875rem;
+    max-height: 2.313rem;
+}
+.green {
+    background-color: $secondary-color;
+    color: white;
+}
+.grey {
+    background-color: #ededed;
+    color: $light-gray;
+}
+.success-modal {
+    .success {
+        max-height: 4.375rem;
+        max-width: 4.375rem;
+    }
+    .desc {
+        font-size: 0.875rem;
+        text-align: center;
+        color: $dark-gray;
+        max-width: 15.625rem;
+    }
+    .button {
+        width: 90%;
+    }
+}
+.update-popup {
+    .update-icon {
+        max-height: 6.25rem;
+        max-width: 6.25rem;
+    }
+    .update-icon-dropped {
+        max-height: 4.688rem;
+        max-width: 4.688rem;
+    }
+    .show-list-container {
+        background-color: white;
+
+        .show-list {
+            color: $secondary-color;
+        }
+    }
+    .title {
+        color: $dark-gray;
+        font-size: 1.25rem;
+    }
+    .subtitle {
+        color: $lighter-gray;
+        font-size: 1rem;
+    }
+    .subsubtitle {
+        color: $lighter-gray;
+        font-size: 0.875rem;
+    }
+}
+.dropped-border {
+    width: 100%;
+    height: 1.5rem;
+    margin-top: -1.5rem;
+    border-bottom-right-radius: 6.25rem;
+    border-bottom-left-radius: 6.25rem;
+    box-shadow: 0 4px 10px -8px $dark-gray;
+}
+.dropdown {
+    transition: height 2s ease-in-out;
+    .drop-title {
+        color: $light-gray;
+        font-size: 0.625rem;
+    }
+    .check-bg {
+        background-color: rgba(0, 0, 0, 0.01);
+        padding: 0.25rem;
+        border: 1px $light-gray solid;
+        border-radius: 0.188rem;
+        max-width: 1.375rem;
+        max-height: 1.375rem;
+        
+        .checked {
+            background-color: $primary-color;
+            box-shadow: 0px 1px 3px $dark-gray inset;
+            width: 0.75rem;
+            height: 0.688rem;
+        }
+        .unchecked {
+            background-color: rgba(0, 0, 0, 0.03);
+            width: 0.75rem;
+            height: 0.688rem;
+        }
+    }
+
+    .scrollable {
+        overflow-x: hidden;
+
+        .card {
+            background-color: white;
+            border: 1px solid #dedede6e;
+
+            .divider {
+                border-left: 1px solid #dedede5e;
+                margin-right: 0.5rem;
+                height: 2.813rem;
+                width: 1px;
+            }
+            .req-id {
+                color: $primary-color;
+                font-size: 0.75rem;
+            }
+            .req-by {
+                color: $lighter-gray;
+                font-size: 0.625rem;
+            }
+            .title {
+                color: $dark-gray;
+                font-size: 0.625rem;
+            }
+            .subtitle {
+                color: $light-gray;
+                font-size: 0.5rem;
+            }
+            .flag {
+                width: 1.313rem;
+                height: 0.875rem;
+            }
+            .icon {
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+        }
+    }
+}
+p {
+    margin: 0rem;
+}
+.open {
+    overflow: auto;
+    height: 65vh;
+}
+.close {
+    overflow: hidden;
+    height: 0vh;
+}

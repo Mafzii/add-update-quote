@@ -3,11 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateQuoteComponent } from '../update-quote/update-quote.component';
 
-
 @Component({
   selector: 'app-update-modal',
   templateUrl: './update-modal.component.html',
-  styleUrls: ['./update-modal.component.css']
+  styleUrls: ['./update-modal.component.scss'],
 })
 export class UpdateModalComponent implements OnInit {
 
@@ -47,7 +46,7 @@ export class UpdateModalComponent implements OnInit {
   }
 
   openSuccess(success: any) {
-    const modalRef = this.modalService.open(success, { centered: true, backdrop: "static", backdropClass: "success-window"});
+    const modalRef = this.modalService.open(success, { centered: true, backdrop: "static", backdropClass: ""});
   }
 
 }

@@ -1,4 +1,4 @@
-<header class="p-4">
+<header class="p-4 update-popup">
     <header>
         <div class="d-flex justify-content-end">
             <button (click)="activeModal.dismiss()" class="btn-close"></button>
@@ -6,8 +6,8 @@
         <div *ngIf="dropdown; else headerDropped">
             <div class="d-flex">
                 <img src="../../assets/icon-update-quote-list.svg" class="update-icon-dropped mb-3"/>
-                <div class="mb-4 pb-1 ms-3">
-                    <h3 class="title mb-1">Requests Await Your Quotes</h3>
+                <div class="mb-4 pb-1 ms-3 lh-sm">
+                    <h3 class="title mb-0">Requests Await Your Quotes</h3>
                     <p class="subsubtitle mx-auto mb-2">There are more requests for the same customer with same route & cargo details.</p>
                     <div class="subtitle mx-auto fw-light">
                         <h6>Do you want to apply this quote to all pending requests?</h6>
@@ -43,138 +43,136 @@
                 <button class="button grey border-0 rounded-1 py-1 px-5 mb-2 mb-sm-0" (click)="activeModal.dismiss()">SKIP</button>
                 <button class="button green border-0 rounded-1 py-1 px-5 shadow-sm ms-sm-4 mb-2 mb-sm-0" (click)="openSuccess(success)">YES, APPLY TO ALL </button>
                 <ng-template #success let-modal>
-                    <header class="container d-flex justify-content-between pt-2 pe-2">
-                        <h3 class="container title">Requests Await Your Quotes</h3>
-                        <img src="../../assets/close.svg"  class="btn-close"  (click)="modal.dismiss()"/>
-                    </header>
-                    <hr>
-                    <main>
-                        <div class="d-flex justify-content-center">
-                            <img src="../../assets/icon-update-quote-request-submited.svg" class="success-icon mb-3"/>
-                        </div>
-                        <h6 class="container success-desc mx-auto mb-3">
-                            Your Request has been Submited Successfully!
-                        </h6>
-                        <div class="d-flex justify-content-center mb-4 container">
-                            <button class="button green border-0 rounded-1 py-1 success-button" (click)="modal.dismiss();activeModal.dismiss()">Would you like to proceed?</button>
-                        </div>
-                    </main>
+                    <body  class="success-modal">
+                        <header class="container d-flex justify-content-between pt-2 pe-2">
+                            <h3 class="container title">Requests Await Your Quotes</h3>
+                            <img src="../../assets/close.svg"  class="btn-close"  (click)="modal.dismiss()"/>
+                        </header>
+                        <hr class="mt-0">
+                        <main>
+                            <div class="d-flex justify-content-center">
+                                <img src="../../assets/icon-update-quote-request-submited.svg" class="success mb-3"/>
+                            </div>
+                            <h6 class="container desc mx-auto mb-3">
+                                Your Request has been Submited Successfully!
+                            </h6>
+                            <div class="d-flex justify-content-center mb-4 container">
+                                <button class="button green border-0 rounded-1 py-1 success-button" (click)="modal.dismiss();activeModal.dismiss()">Would you like to proceed?</button>
+                            </div>
+                        </main>
+                    </body>
                 </ng-template>
             </div>
         </div>
     </main>
 </header>
-
 <div *ngIf="dropdown">
     <footer>
         <div class="dropped-border mb-3"></div>
     </footer>
 </div>
-
-<body *ngIf="dropdown">
-    <div class="mx-4">
-        <header>
-            <label class="subtitle-drop fw-normal d-flex mb-3">
-                <div (click)="selectAll()" class="check-bg">
-                    <div [ngClass]="select_all ? 'checked' : 'unchecked'"></div>
-                </div>
-                <h6 class="ms-2 mb-0 mt-1" style="font-size: 14px;">SELECT ALL</h6>
-            </label>
-        </header>
-        <main class="scrollable">
-            <section *ngFor="let request of reqs; index as i;" class="mb-2 fadeIn" > <!-- [ngClass]="dropdown ? 'fadeIn':'fadeOut'" -->
-                <div class="shadow-sm">
-                    <div class="card">
-                        <header class="d-flex ps-3 ps-lg-4 my-2 lh-1">
-                            <div class="check-bg" (click)="toggler(i)">
-                                <div id="check-{{i}}" [ngClass]="checkboxes[i] ? 'checked' : 'unchecked'"></div>
-                            </div>
-                            <div class="ms-2">
-                                <div class="req-id fw-bold">HMQ-2206200000005</div>
-                                <p class="req-by fw-normal">Requested by Asif Sattar on 20 Jun, 2022 6:50 (GMT)</p>
-                            </div>
-                        </header>
-                        <hr class="m-0">
-                        <main class="ps-3 ps-lg-4">
-                            <div class="row d-flex pb-3 pt-2">
-                                <div class="col-lg-5 col-md-12 d-flex justify-content-evenly">
-                                    <div class="row">
-                                        <div class="col-5">
-                                            <div class="subtitle-drop">ORIGIN</div>
-                                            <label class="d-flex mt-2">
-                                                <img class="flag mt-1" src="../../assets/pak.svg"/>
+<body class="dropdown" [ngClass]="dropdown ? 'open' : 'close'">
+    <header class="mx-4">
+        <label class="drop-title d-flex mb-3">
+            <div (click)="selectAll()" class="check-bg">
+                <div [ngClass]="select_all ? 'checked' : 'unchecked'"></div>
+            </div>
+            <h6 class="ms-2 mb-0 mt-1" style="font-size: 14px;">SELECT ALL</h6>
+        </label>
+    </header>
+    <main class="scrollable px-4">
+        <section *ngFor="let request of reqs; index as i;" class="mb-2" > <!-- [ngClass]="dropdown ? 'fadeIn':'fadeOut'" -->
+            <div class="shadow-sm">
+                <div class="card">
+                    <header class="d-flex ps-3 ps-lg-4 my-2 lh-sm">
+                        <div class="check-bg" (click)="toggler(i)">
+                            <div id="check-{{i}}" [ngClass]="checkboxes[i] ? 'checked' : 'unchecked'"></div>
+                        </div>
+                        <div class="ms-2">
+                            <div class="req-id fw-bold">HMQ-2206200000005</div>
+                            <p class="req-by">Requested by Asif Sattar on 20 Jun, 2022 6:50 (GMT)</p>
+                        </div>
+                    </header>
+                    <hr class="m-0">
+                    <main class="ps-3 ps-lg-4">
+                        <div class="row d-flex pb-3 pt-2">
+                            <div class="col-lg-5 col-md-12 d-flex justify-content-evenly">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="drop-title">ORIGIN</div>
+                                        <label class="d-flex mt-2">
+                                            <img class="flag mt-1" src="../../assets/pak.svg"/>
+                                            <div class="ps-1">
+                                                <div class="title">PK KHI</div>
+                                                <div class="subtitle">Karachi Pakistan</div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="d-flex mt-4">
+                                            <img src="../../../assets/dotted.svg" />
+                                        </div>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="drop-title">DESTINATION</div>
+                                        <label class="d-flex mt-2">
+                                            <div class="d-flex">
+                                                <img class="flag mt-1" src="../../assets/sa.svg"/>
                                                 <div class="ps-1">
-                                                    <div class="flag-title">PK KHI</div>
-                                                    <div class="flag-subtitle">Karachi Pakistan</div>
+                                                    <div class="title">SA DMM</div>
+                                                    <div class="subtitle">Dammam Saudi Arabia</div>
                                                 </div>
-                                            </label>
-                                        </div>
-                                        <div class="col-2">
-                                            <div class="d-flex mt-4">
-                                                <img src="../../../assets/dotted.svg" />
                                             </div>
-                                        </div>
-                                        <div class="col-5">
-                                            <div class="subtitle-drop">DESTINATION</div>
-                                            <label class="d-flex mt-2">
-                                                <div class="d-flex">
-                                                    <img class="flag mt-1" src="../../assets/sa.svg"/>
-                                                    <div class="ps-1">
-                                                        <div class="flag-title">SA DMM</div>
-                                                        <div class="flag-subtitle">Dammam Saudi Arabia</div>
-                                                    </div>
-                                                </div>
-                                            </label>
-                                        </div>
+                                        </label>
                                     </div>
                                 </div>
-                                <div class="col-lg-7 d-flex mt-3 mt-lg-0 justify-content-between justify-content-lg-start">
-                                    <div class="row">
-                                        <div class="col-lg-6 ps-lg-0 d-flex">
-                                            <div class="col-6">
-                                                <div class="subtitle-drop ms-0 ms-sm-2">CUSTOMER</div>
-                                                <div class="d-flex">
-                                                    <div class="card-divider"></div>
-                                                    <div class="d-flex mt-2">
-                                                        <img src="../../assets/atco.png" class="icon" />
-                                                        <div class="flag-title ms-1">Atco Laboratories</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="subtitle-drop ms-0 ms-sm-2">SHIPPING LINE</div>
-                                                <div class="d-flex">
-                                                    <div class="card-divider"></div>
-                                                    <div class="d-flex mt-2">
-                                                        <img src="../../assets/CMACGM.png" class="icon" />
-                                                        <div class="flag-title ms-1">CMA CGM Shipping</div>
-                                                    </div>
+                            </div>
+                            <div class="col-lg-7 d-flex mt-3 mt-lg-0 justify-content-between justify-content-lg-start">
+                                <div class="row">
+                                    <div class="col-lg-6 ps-lg-0 d-flex">
+                                        <div class="col-6">
+                                            <div class="drop-title ms-0 ms-sm-2">CUSTOMER</div>
+                                            <div class="d-flex">
+                                                <div class="divider"></div>
+                                                <div class="d-flex mt-2">
+                                                    <img src="../../assets/atco.png" class="icon" />
+                                                    <div class="title ms-1 text-break">Atco Laboratories</div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 d-flex mt-2 mt-lg-0">
-                                            <div class="col-6">
-                                                <div class="subtitle-drop ms-0 ms-sm-2">CARGO DETAILS</div>
-                                                <div class="d-flex">
-                                                    <div class="card-divider"></div>
-                                                    <div class="fw-normal flag-title mt-2">FCL x 3</div>
+                                        <div class="col-6">
+                                            <div class="drop-title ms-0 ms-sm-2">SHIPPING LINE</div>
+                                            <div class="d-flex">
+                                                <div class="divider"></div>
+                                                <div class="d-flex mt-2">
+                                                    <img src="../../assets/CMACGM.png" class="icon" />
+                                                    <div class="title ms-1 text-break">CMA CGM Shipping</div>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
-                                                <div class="subtitle-drop ms-0 ms-sm-2">CUT OFF</div>
-                                                <div class="d-flex">
-                                                    <div class="card-divider"></div>
-                                                    <div class="flag-title mt-2">23 May 2022</div>
-                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 d-flex mt-2 mt-lg-0">
+                                        <div class="col-6">
+                                            <div class="drop-title ms-0 ms-sm-2">CARGO DETAILS</div>
+                                            <div class="d-flex">
+                                                <div class="divider"></div>
+                                                <div class="title mt-2">FCL x 3</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="drop-title ms-0 ms-sm-2">CUT OFF</div>
+                                            <div class="d-flex">
+                                                <div class="divider"></div>
+                                                <div class="title mt-2">23 May 2022</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </main>
-                    </div>
+                        </div>
+                    </main>
                 </div>
-            </section>
-        </main>
-    </div>
+            </div>
+        </section>
+    </main>
 <body>
