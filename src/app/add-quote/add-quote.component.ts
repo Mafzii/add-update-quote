@@ -4,6 +4,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 
 
+
 @Component({
   selector: 'app-add-quote',
   templateUrl: './add-quote.component.html',

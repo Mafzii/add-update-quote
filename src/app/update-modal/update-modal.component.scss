@@ -36,6 +36,7 @@ $dark-gray: #2b2b2b;
     }
 }
 .update-popup {
+    background-color: white;
     .update-icon {
         max-height: 6.25rem;
         max-width: 6.25rem;
@@ -67,13 +68,14 @@ $dark-gray: #2b2b2b;
 .dropped-border {
     width: 100%;
     height: 1.5rem;
-    margin-top: -1.5rem;
-    border-bottom-right-radius: 6.25rem;
-    border-bottom-left-radius: 6.25rem;
-    box-shadow: 0 4px 10px -8px $dark-gray;
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+    border: transparent;
+    background-color: white;
 }
 .dropdown {
     transition: height 2s ease-in-out;
+    box-shadow: inset 1px 4px 9px -6px;
     .drop-title {
         color: $light-gray;
         font-size: 0.625rem;
@@ -100,8 +102,9 @@ $dark-gray: #2b2b2b;
     }
 
     .scrollable {
+        height: 90%;
+        overflow-y: scroll;
         overflow-x: hidden;
-
         .card {
             background-color: white;
             border: 1px solid #dedede6e;
@@ -143,7 +146,7 @@ p {
     margin: 0rem;
 }
 .open {
-    overflow: auto;
+    overflow: hidden;
     height: 65vh;
 }
 .close {
