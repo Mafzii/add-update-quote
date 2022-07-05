@@ -1,9 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { UpdateQuoteComponent } from '../update-quote/update-quote.component';
-
-import jsPDF from 'jspdf';
 
 @Component({
   selector: 'app-update-modal',
@@ -23,10 +20,6 @@ export class UpdateModalComponent implements OnInit {
   constructor(public activeModal: NgbActiveModal, private modalService: NgbModal) { }
 
   ngOnInit(): void {
-  }
-
-  openUpdateQuote() {
-    const modalRef = this.modalService.open(UpdateQuoteComponent, { size: 'xl', backdrop: "static" });
   }
 
   toggleList() {
@@ -49,22 +42,7 @@ export class UpdateModalComponent implements OnInit {
   }
 
   openSuccess(success: any) {
-    const modalRef = this.modalService.open(success, { centered: true, backdrop: "static", backdropClass: ""});
-  }
-  
-  @ViewChild('cardContent', {static: false})
-  data!: ElementRef;
-
-
-  convertToPDF() {
-    const doc = new jsPDF();
-   
-    const data = this.data.nativeElement;
-    doc.html((data), {
-      callback: (pdf) => {
-        pdf.save('demo.pdf');
-      }
-    })
+    const modalRef = this.modalService.open(success, { centered: true, backdrop: "static", windowClass: "success-modal-bg"});
   }
 
 }

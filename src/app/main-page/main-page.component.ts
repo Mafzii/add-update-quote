@@ -14,7 +14,7 @@ export class MainPageComponent implements OnInit {
   constructor(private modalService: NgbModal) {}
 
   openUpdate() {
-    const modalRef = this.modalService.open(UpdateModalComponent, { centered: true, size: 'lg', backdrop: "static", windowClass:"dark-modal" });
+    const modalRef = this.modalService.open(UpdateModalComponent, { centered: true, size: 'lg', backdrop: "static", windowClass:"transparent-modal" });
   }
 
   openAdd() {

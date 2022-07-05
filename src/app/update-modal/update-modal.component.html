@@ -40,13 +40,13 @@
                 <span class="show-list position-absolute ps-3">Show List</span>
             </button>
             <div class="d-flex flex-wrap-reverse justify-content-center">
-                <button class="button grey border-0 rounded-1 py-1 px-5 mb-2 mb-sm-0" (click)="convertToPDF()">SKIP</button>
+                <button class="button grey border-0 rounded-1 py-1 px-5 mb-2 mb-sm-0" (click)="activeModal.dismiss()">SKIP</button>
                 <button class="button green border-0 rounded-1 py-1 px-5 shadow-sm ms-sm-4 mb-2 mb-sm-0" (click)="openSuccess(success)">YES, APPLY TO ALL </button>
                 <ng-template #success let-modal>
                     <body  class="success-modal">
                         <header class="container d-flex justify-content-between pt-2 pe-2">
                             <h3 class="container title">Requests Await Your Quotes</h3>
-                            <img src="../../assets/close.svg"  class="btn-close"  (click)="modal.dismiss()"/>
+                            <button class="btn-close"  (click)="modal.dismiss()"></button>
                         </header>
                         <hr class="mt-0">
                         <main>
@@ -153,7 +153,7 @@
                                     </div>
                                     <div class="col-lg-6 d-flex mt-2 mt-lg-0">
                                         <div class="col-6">
-                                            <div class="drop-title ms-0 ms-sm-2">CARGO DETAILS</div>
+                                            <div class="drop-title ms-0 ms-sm-2">CARGO DETAIL</div>
                                             <div class="d-flex">
                                                 <div class="divider"></div>
                                                 <div class="title mt-2">FCL x 3</div>
